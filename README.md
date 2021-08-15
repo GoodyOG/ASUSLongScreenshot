@@ -11,4 +11,5 @@ Tested on Lineageos17.1 ( android 10) and Evolution X (android 11)
     > Tapping Tile changes screenshot delay, longpress takes screenshot
  - Show delay in QS icon and QS subtitle (subtitles need API level 29+)
  - Updated QS icons
+ - Add Tasker Action to start screenshot service
 
