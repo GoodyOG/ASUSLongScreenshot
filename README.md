@@ -1,4 +1,4 @@
-# ASUS Long screenshot port for Android 9+
+# ASUS Long screenshot port for Android 9-11
 The QS shortcut is based on PixelExperience implementation for the Qs Tile (big thanks and credits to PE team)
 Tested on Lineageos17.1 ( android 10) and Evolution X (android 11)
 # Changelog
