@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.asus.stitchimage.service">
+		<permission name="com.asus.stitchimage.service.permission.BIND_SERVICE"/>
+		<permission name="android.permission.INJECT_EVENTS"/>
+		<permission name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+		<permission name="com.asus.asuspointerlistener.permission.MONITOR_POINT_EVENT"/>
+    </privapp-permissions>
+</permissions>

@@ -1,0 +1,6 @@
+id=ASUSLongScreenshot
+name=ASUS Long screenshot port
+version=v4.0
+versionCode=40
+author=luisbocanegra
+description=Asus screenshot port (PixelExperience Implementation) with QS tile. Android 9+ 
