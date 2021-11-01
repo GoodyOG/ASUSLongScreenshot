@@ -115,7 +115,7 @@ REPLACE="
 print_modname() {
   ui_print "*********************************"
   ui_print "* ASUS Long Screenshot port     *"
-  ui_print "* Support: Android 9-11         *"
+  ui_print "* Support: Android 9-12         *"
   ui_print "* By: @luisbocanegra            *"
   ui_print "*********************************"
 }
@@ -126,7 +126,7 @@ on_install() {
   # The following is the default implementation: extract $ZIPFILE/system to $MODPATH
   # Extend/change the logic to whatever you want
   
-  if [ $API -lt 28 ] && [ $API -gt 30 ]; then
+  if [ $API -lt 28 ] || [ $API -gt 31 ]; then
   abort "Error: API $API is not supported :("
   fi
   ui_print "- Extracting module files"
