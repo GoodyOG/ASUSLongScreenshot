@@ -116,6 +116,7 @@ print_modname() {
   ui_print "*********************************"
   ui_print "* ASUS Long Screenshot port     *"
   ui_print "* Support: Android 9-12         *"
+  ui_print "* Version: 5.0.1                *"
   ui_print "* By: @luisbocanegra            *"
   ui_print "*********************************"
 }
