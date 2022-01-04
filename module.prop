@@ -3,4 +3,4 @@ name=ASUS Long screenshot port
 version=v5.0.0
 versionCode=500
 author=luisbocanegra
-description=Asus screenshot port (PixelExperience Implementation) with QS tile. Android 9-12
+description=Asus screenshot port with QS tile & Tasker plugin (based on Pixel Experience implementation). Android 9-12
