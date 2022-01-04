@@ -125,10 +125,23 @@ print_modname() {
 on_install() {
   # The following is the default implementation: extract $ZIPFILE/system to $MODPATH
   # Extend/change the logic to whatever you want
+  target_platform_cert='MIIBIDANBgkqhkiG9w0BAQEFAAOCAQ0AMIIBCAKCAQEAnHgFkqwNXTgc3qpl7MimAG42SAxtcgexIBG+UIY6q+K1XQCa33FG1vIgIoDHzU172yYkO4qAbCazSxN1I6SSaCJJBNwBST58Cs8aBch09psDe2AwnZB00kKA4WutKoc0NhlR6vcqSC0JsgSxh14SrJjBqnc9aAC56v3lbVi+2OjaFvmjYAmcN6g0pt/tt7a0SgSeB6Jp/M8sVJbyzzbWTfkKO42PNKO6q0z1M3GrJ3GbO6WHVK0MU/wU4dtF1R4jT7vpPJuk7fnOVCYTUOxTVge/aaL/SqB9tffqIA0JpsG0niFAL4ntEZCJOqtakYDxUugvhaRXU89fwZBxxe7IJwIBAw=='
+  android_package_cert_index=$(cat /data/system/packages.xml | grep 'package name="android"' -A 999 | grep proper-signing-keyset | head -1 | tr -d -c 0-9)
+  device_platform_cert=$(cat /data/system/packages.xml | grep -e "public-key identifier=\"${android_package_cert_index}\"" | sed -e "s/<public-key identifier=\"${android_package_cert_index}\" value=\"\(.*\)\"\(.*\)\/>/\1/" | tr -d ' ')
   
-  if [ $API -lt 28 ] || [ $API -gt 31 ]; then
-  abort "Error: API $API is not supported :("
+  if $BOOTMODE; then
+    if [[ "$target_platform_cert" == "$device_platform_cert" ]]; then
+      if [ $API -lt 28 ] || [ $API -gt 31 ]; then
+        abort "Error: API $API is not supported :("
+      fi
+    else
+      ui_print "Error: Incompatible platform signature :("
+      abort "ROM is not signed with AOSP's public release-keys"
+    fi
+  else
+    abort "Error: Please install from Magisk app"
   fi
+
   ui_print "- Extracting module files"
   unzip -o "$ZIPFILE" 'system/*' -d $MODPATH >&2
   set_permissions
