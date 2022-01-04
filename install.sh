@@ -131,7 +131,7 @@ on_install() {
   
   if $BOOTMODE; then
     if [[ "$target_platform_cert" == "$device_platform_cert" ]]; then
-      if [ $API -lt 28 ] || [ $API -gt 31 ]; then
+      if [ $API -lt 28 ] || [ $API -gt 32 ]; then
         abort "Error: API $API is not supported :("
       fi
     else
